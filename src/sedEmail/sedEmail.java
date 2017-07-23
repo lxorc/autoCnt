@@ -20,7 +20,7 @@ public class sedEmail {
     public static void semail(String text) throws Exception {
         Properties props = new Properties();
         props.setProperty("mail.smtp.auth", "true");//必须 普通客户端
-        props.setProperty("mail.transport.protocol", "smtp");//必须选择协议
+        props.setProperty("mail.transport.protocol", "smtp");//必须选择协议的
         Session session = Session.getDefaultInstance(props);
         session.setDebug(true);//设置debug模式   在控制台看到交互信息
         Message msg = new MimeMessage(session);  //建立一个要发送的信息
