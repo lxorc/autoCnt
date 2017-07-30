@@ -3,8 +3,8 @@ package autoSav;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCollection;
 
-import count.conMon;
-import count.keyVal;
+import util.conMon;
+import util.keyVal;
 
 public class savMongoData {
 	/*
@@ -16,10 +16,9 @@ public class savMongoData {
 	 * */
 	public static void sav(String DbName,String Dat,Long...Val){
 //		集群测试
-//		DBCollection dbCol =
-//				conMongo.mongoConn(keyVal.mongo30001, keyVal.AllCntSav);
+		DBCollection dbCol =conMon.mongoConn30001("xngStat", keyVal.AllCntSav);
 //		本地测试
-		DBCollection dbCol =conMon.mongoConn(keyVal.test, keyVal.AllCntSav);
+//		DBCollection dbCol =conMon.mongoConn(keyVal.test, keyVal.AllCntSav);
         BasicDBObject obj = new BasicDBObject();
         obj.put("Col",DbName);
         obj.put("Dat",Dat);

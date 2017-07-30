@@ -1,4 +1,4 @@
-package count;
+package util;
 
 public class cbnString {
 	/**

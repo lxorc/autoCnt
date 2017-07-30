@@ -1,4 +1,4 @@
-package count;
+package util;
 
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -7,7 +7,6 @@ import com.mongodb.MongoClient;
 
 public class conMon {
 	//localHost
-
     public static  DBCollection  mongoConn(String db,String coll){
         DBCollection collection = null;
         try {
@@ -18,7 +17,6 @@ public class conMon {
            collection = mongoDatabase.getCollection(coll);
             System.out.println("----------------------Choose collection:"+coll);
         } catch (Exception e) {
-            e.printStackTrace();
             return collection;
         }
         return collection;
