@@ -11,10 +11,8 @@ public class conMon {
     public static  DBCollection  mongoConn(String db,String coll){
         DBCollection collection = null;
         try {
-            @SuppressWarnings("resource")
 			Mongo mongoClient = new MongoClient( "localhost" , 27017 );
             // 连接到数据库
-            @SuppressWarnings("deprecation")
 			DB mongoDatabase = mongoClient.getDB(db);
             System.out.println("----------------------Connect to "+mongoDatabase.getName()+" successfully");
            collection = mongoDatabase.getCollection(coll);
@@ -30,10 +28,8 @@ public class conMon {
     public static  DBCollection  mongoConn29999(String db,String coll){
         DBCollection collection = null;
         try {
-            @SuppressWarnings("resource")
 			Mongo mongoClient = new MongoClient( "10.26.222.98" , 29999 );
             // 连接到数据库
-            @SuppressWarnings("deprecation")
 			DB mongoDatabase = mongoClient.getDB(db);
             System.out.println("----------------------Connect to "+mongoDatabase.getName()+" successfully");
            collection = mongoDatabase.getCollection(coll);
@@ -51,7 +47,6 @@ public class conMon {
         try {
             @SuppressWarnings("resource")
 			Mongo mongoClient = new MongoClient( "10.173.196.67" , 30001 );
-            @SuppressWarnings("deprecation")
 			DB mongoDatabase = mongoClient.getDB(db);
             System.out.println("----------------------Connect to "+mongoDatabase.getName()+" successfully");
            collection = mongoDatabase.getCollection(coll);
@@ -63,10 +58,5 @@ public class conMon {
         return collection;
     }
 
-    public static void main( String args[] ) throws Exception{	
-//    	System.out.println(find());
-//    	sendEmail.semail(getMongoData.find());
-//    	savMongoData.sav("test",12,20);
-    	System.out.println(getMonDat.findLocal());
-    }
+
 }

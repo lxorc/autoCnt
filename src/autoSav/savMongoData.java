@@ -19,8 +19,7 @@ public class savMongoData {
 //		DBCollection dbCol =
 //				conMongo.mongoConn(keyVal.mongo30001, keyVal.AllCntSav);
 //		本地测试
-		DBCollection dbCol =
-				conMon.mongoConn(keyVal.test, keyVal.AllCntSav);
+		DBCollection dbCol =conMon.mongoConn(keyVal.test, keyVal.AllCntSav);
         BasicDBObject obj = new BasicDBObject();
         obj.put("Col",DbName);
         obj.put("Dat",Dat);
@@ -28,7 +27,6 @@ public class savMongoData {
         if (Val.length>1) {
             obj.put("Pv", Val[1]);
 		}
-        dbCol.insert(obj);
-        System.out.println(obj.toString());
+        dbCol.save(obj);
 	}
 }

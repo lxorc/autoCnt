@@ -1,7 +1,7 @@
 package count;
 
 public class cbnString {
-	/*
+	/**
 	 * @kami
 	 * 合并字符串
 	 * a+b+c

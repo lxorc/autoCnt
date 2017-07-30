@@ -46,8 +46,10 @@ public class getMonDat {
 		String date = jsonObject.getString(keyVal.Dat);
 		Long uview = jsonObject.getLong(str [3]);
 		String line = cbnString.cbnStr(str[0], str[1], date, uview);
-		savMongoData.sav(str[0],date,uview);
-		if (str.length>3){
+		if (str.length<3) {
+			savMongoData.sav(str[0], date, uview);
+		}
+		else if (str.length>3){
 			Long pview = jsonObject.getLong(str[4]);
 			line = cbnString.cbnStr(str[0], str[1], date, uview,pview);
 			savMongoData.sav(str[0],date,uview,pview);
@@ -60,7 +62,7 @@ public class getMonDat {
     		DBCursor cursor;
             try{
             	//一天前的数据
-    			Long date = Long.parseLong(getDate.getDay(6));
+    			Long date = Long.parseLong(getDate.getDay(1));
 	                cursor = queryOne("date", date,db,coll);
                 while (cursor.hasNext()){
                     String bson = cursor.next().toString();
@@ -87,9 +89,6 @@ public class getMonDat {
 			// TODO: handle exception
 			System.out.println(e.getMessage()+e.getClass().getName());
 			System.out.println("没有在"+coll+"找到数据");
-		}
-    	finally {
-    		System.out.println(bson);
 		}
 		return bson;
 	}
@@ -148,9 +147,13 @@ public class getMonDat {
     
     public static String findLocal() {
     	//本地测试
-    	mongoFind(keyVal.MaAuthSharAl,keyVal.test);
-    	getResult("wa读者社22唤醒回流\t",keyVal.MaAuthSharAl,keyVal.Uview,keyVal.Pview);
-    	for (String string : set) {
+    	mongoFind(keyVal.MaUpd,keyVal.test);
+    	getResult("wa读者社22唤醒回流\t",keyVal.MaUpd,keyVal.Uview,keyVal.Pview);
+
+		mongoFind(keyVal.OutReadSharBacAl, keyVal.test);
+
+		System.out.println(getResult("wa读者社交唤醒回流\n", keyVal.OutReadSharBacAl, keyVal.Uview, keyVal.Pview));
+		for (String string : set) {
 			str = str + string;
 		}
     	return str;
