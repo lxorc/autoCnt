@@ -71,9 +71,6 @@ public class findInMon {
         //本地测试
         getMonDat.mongoFind(keyVal.MaUpd, keyVal.test);
         getMonDat.getResult("wa读者社22唤醒回流\t", keyVal.MaUpd, keyVal.Uview, keyVal.Pview);
-
-        getMonDat.mongoFind(keyVal.OutReadSharBacAl, keyVal.test);
-        getMonDat.getResult("wa读者社交唤醒回流\n", keyVal.OutReadSharBacAl, keyVal.Uview, keyVal.Pview);
     }
 
 }

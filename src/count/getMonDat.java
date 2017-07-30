@@ -44,12 +44,7 @@ public class getMonDat {
 	public static String toJson(String... str) {
 //		String dataName,String coll,String bson,String uv,String pv
 		JSONObject jsonObject = JSONObject.fromObject(str[2]);
-		String date;
-		if (str[1].equals(keyVal.DSta)) {
-			date = jsonObject.getString(keyVal.Dat_id);
-		} else {
-			date = jsonObject.getString(keyVal.Dat);
-		}
+		String date = getDate.getDay(1,keyVal.ymdNoSepar);
 		Long uview = jsonObject.getLong(str[3]);
 		String line = cbnString.cbnStr(str[0], str[1], date, uview);
 		if (str.length == 4) {
@@ -81,27 +76,23 @@ public class getMonDat {
 	//获取前一天的数据 并存入 map
 	public static void mongoFind(String coll, String db) {
 
-		DBCursor cursor;
+		DBCursor cursor = null;
+		String date = "";
 		try {
 			if (db.equals(keyVal.mongo30001)) {
 				//在mongo上是20170701
-				//一天前的数据
-				String date = getDate.getDay(1, keyVal.ymdNoSepar);
+				date = getDate.getDay(1, keyVal.ymdNoSepar);
 				cursor = queryOne("date", date, db, coll);
-				while (cursor.hasNext()) {
-					String bson = cursor.next().toString();
-					map.put(coll, bson);
-				}
 			} else if (db.equals(keyVal.mongo29999)) {
 				//在mongo2999是2017-07-01
 				//一天前的数据
-				String date = (getDate.getDay(1, keyVal.ymd));
+				date = (getDate.getDay(1, keyVal.ymd));
 				cursor = queryOne("_id", date, db, coll);
-				while (cursor.hasNext()) {
-					String bson = cursor.next().toString();
-					System.out.println(bson);
-					map.put(coll, bson);
-				}
+			}
+			while (cursor.hasNext()) {
+				String bson = cursor.next().toString();
+				System.out.println(bson);
+				map.put(coll, bson);
 			}
 		} catch (Exception e) {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
