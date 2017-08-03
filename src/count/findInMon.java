@@ -34,9 +34,9 @@ public class findInMon {
         getMonDat.getResult("ma作者通过链接社交唤醒回流\t", keyVal.MaDfsAuthAl, keyVal.Uview, keyVal.Pview);
 
         getMonDat.mongoFind(keyVal.MaDfqsReadAl, keyVal.mongo30001);
-        getMonDat.getResult("ma作者通过二维码社交唤醒回流\t", keyVal.MaDfqsReadAl, keyVal.Uview, keyVal.Pview);
+        getMonDat.getResult("ma读者通过二维码社交唤醒回流\t", keyVal.MaDfqsReadAl, keyVal.Uview, keyVal.Pview);
         getMonDat.mongoFind(keyVal.MaDfsReadAl, keyVal.mongo30001);
-        getMonDat.getResult("ma作者通过链接社交唤醒回流\t", keyVal.MaDfsReadAl, keyVal.Uview, keyVal.Pview);
+        getMonDat.getResult("ma读者通过链接社交唤醒回流\t", keyVal.MaDfsReadAl, keyVal.Uview, keyVal.Pview);
 
 //		3000webAPP 日统计
         getMonDat.mongoFind(keyVal.OutAuthSharAl, keyVal.mongo30001);

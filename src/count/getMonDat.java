@@ -125,7 +125,7 @@ public class getMonDat {
 	//("分享回流"，"coll1","coll2","uv","pv")
 	public static String getResultSum(String dataName, String collOne, String collTwo, String... str) {
 		String toJson = new String();
-		String[] collStrs = {map.get(collTwo), map.get(collTwo)};
+		String[] collStrs = {map.get(collOne), map.get(collTwo)};
 		try {
 			toJson = toJson.concat(toJsonSum(dataName, collStrs, str[0], str[1]));
 			set.add(toJson);
