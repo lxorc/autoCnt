@@ -12,7 +12,7 @@ import autoSav.savMongoData;
 import net.sf.json.JSONObject;
 import util.cbnString;
 import util.conMon;
-import util.getDate;
+import util.getMonDate;
 import util.keyVal;
 
 public class getMonDat {
@@ -44,7 +44,7 @@ public class getMonDat {
 	public static String toJson(String... str) {
 //		String dataName,String coll,String bson,String uv,String pv
 		JSONObject jsonObject = JSONObject.fromObject(str[2]);
-		String date = getDate.getDay(1,keyVal.ymdNoSepar);
+		String date = getMonDate.getDay(1, keyVal.ymdNoSepar);
 		Long uview = jsonObject.getLong(str[3]);
 		String line = cbnString.cbnStr(str[0], str[1], date, uview);
 		if (str.length == 4) {
@@ -67,7 +67,7 @@ public class getMonDat {
 			uview += jsonObject.getLong(uv);
 			pview += jsonObject.getLong(pv);
 		}
-		String date = getDate.getDay(1,keyVal.ymdNoSepar);
+		String date = getMonDate.getDay(1, keyVal.ymdNoSepar);
 		String line = cbnString.cbnStr(dataName, dataName, date, uview, pview);
 		savMongoData.sav(dataName, date, uview, pview);
 		return line;
@@ -81,12 +81,12 @@ public class getMonDat {
 		try {
 			if (db.equals(keyVal.mongo30001)) {
 				//在mongo上是20170701
-				date = getDate.getDay(1, keyVal.ymdNoSepar);
+				date = getMonDate.getDay(1, keyVal.ymdNoSepar);
 				cursor = queryOne("date", date, db, coll);
 			} else if (db.equals(keyVal.mongo29999)) {
 				//在mongo2999是2017-07-01
 				//一天前的数据
-				date = (getDate.getDay(1, keyVal.ymd));
+				date = (getMonDate.getDay(1, keyVal.ymd));
 				cursor = queryOne("_id", date, db, coll);
 			}
 			while (cursor.hasNext()) {
