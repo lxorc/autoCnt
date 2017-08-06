@@ -91,7 +91,7 @@ public class getMonDat {
 			}
 			while (cursor.hasNext()) {
 				String bson = cursor.next().toString();
-				System.out.println(bson);
+//				System.out.println(bson);
 				map.put(coll, bson);
 			}
 		} catch (Exception e) {
