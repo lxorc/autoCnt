@@ -18,7 +18,7 @@ public class list {
         DBCollection collection = null;
         Mongo mongoClient = null;
         try {
-            mongoClient = new MongoClient( "localhost" , 27017 );
+            mongoClient = new MongoClient( "10.26.222.98" , 50000 );
             // 连接到数据库
             DB mongoDatabase = mongoClient.getDB(db);
             System.out.println("----------------------Connect to "+mongoDatabase.getName()+" successfully");
@@ -55,7 +55,7 @@ public class list {
     public  static  void test(){
         Map<Long,Long> list = new HashMap();
         Map<String,String> find = new IdentityHashMap<String, String>();
-        DBCollection dbColl = mongoConn(keyVal.test,"album_email");
+        DBCollection dbColl = mongoConn("xng_task","album_email");
         BasicDBList condList = new BasicDBList();
         BasicDBObject cond = new BasicDBObject();
          cond.put("$gt",1497888000000L);
