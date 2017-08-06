@@ -77,16 +77,16 @@ public class list {
             String colName = "album_msg_by_mid_" + colFind;
             switch (dbFind){
                 case 0:
-                    query(mongoConn(dbName, colName, "10.27.208.238", 50000), dbName, colName);
+                    query(mongoConn(dbName, colName, "10.27.208.238", 50000), "_id", album_id);
                     break;
                 case 1:
-                    query(mongoConn(dbName, colName, "10.27.208.241", 50001), dbName, colName);
+                    query(mongoConn(dbName, colName, "10.27.208.241", 50001), "_id", album_id);
                     break;
                 case 2:
-                    query(mongoConn(dbName, colName, "10.26.118.56", 50002), dbName, colName);
+                    query(mongoConn(dbName, colName, "10.26.118.56", 50002), "_id", album_id);
                     break;
                 case 3:
-                    query(mongoConn(dbName, colName, "10.27.208.233",50003), dbName, colName);
+                    query(mongoConn(dbName, colName, "10.27.208.233",50003), "_id", album_id);
                     break;
             }
 //            mongoConn(dbName,colName,"10.27.208.238",50000);
@@ -108,7 +108,7 @@ public class list {
         10.26.118.56		 2-0
         10.27.208.233        3-0*/
     }
-    public static  void query(DBCollection collection,String key,String value){
+    public static  void query(DBCollection collection,String key,Long value){
         BasicDBObject queryObjectMain = new BasicDBObject();
         BasicDBObject queryObjectAnt = new BasicDBObject();
         queryObjectMain.put(key,value);
