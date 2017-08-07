@@ -102,7 +102,11 @@ public class list {
 //            System.out.println(entry.getKey()+"\t\t"+entry.getValue());
 //        }
 
-        System.out.println(set.iterator());
+        Iterator<String> it = set.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+//        System.out.println(set.iterator());
         /*10.27.208.238      0-0
         10.27.208.241		 1-0
         10.26.118.56		 2-0
